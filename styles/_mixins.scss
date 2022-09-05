@@ -1,0 +1,82 @@
+@mixin media($screenSize) {
+  @if ($screenSize == xxl) {
+    @media (max-width: 1400px) {
+      @content;
+    }
+  }
+  @if ($screenSize == xl) {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if ($screenSize == lg) {
+    @media (max-width: 992px) {
+      @content;
+    }
+  }
+  @if ($screenSize == md) {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @if ($screenSize == sm) {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+}
+// @mixin media($screenSize) {
+//   @if ($screenSize == xxl) {
+//     @media (max-width: 1536px) {
+//       @content;
+//     }
+//   }
+//   @if ($screenSize == xl) {
+//     @media (max-width: 1280px) {
+//       @content;
+//     }
+//   }
+//   @if ($screenSize == lg) {
+//     @media (max-width: 1024px) {
+//       @content;
+//     }
+//   }
+//   @if ($screenSize == md) {
+//     @media (max-width: 768px) {
+//       @content;
+//     }
+//   }
+//   @if ($screenSize == sm) {
+//     @media (max-width: 640px) {
+//       @content;
+//     }
+//   }
+// }
+
+// @mixin media($screenSize) {
+//   @if ($screenSize == xxl) {
+//     @media (min-width: 1536px) {
+//       @content;
+//     }
+//   }
+//   @if ($screenSize == xl) {
+//     @media (min-width: 1280px) {
+//       @content;
+//     }
+//   }
+//   @if ($screenSize == lg) {
+//     @media (min-width: 1024px) {
+//       @content;
+//     }
+//   }
+//   @if ($screenSize == md) {
+//     @media (min-width: 768px) {
+//       @content;
+//     }
+//   }
+//   @if ($screenSize == sm) {
+//     @media (min-width: 640px) {
+//       @content;
+//     }
+//   }
+// }

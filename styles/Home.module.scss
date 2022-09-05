@@ -1,0 +1,432 @@
+@import "./_mixins.scss";
+
+.Home {
+  width: 100%;
+  height: auto;
+  display: flex;
+
+  .container {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    flex: 1;
+
+    @include media(lg) {
+      padding-left: var(--w-8);
+      padding-right: var(--w-8);
+    }
+    @include media(sm) {
+      padding-left: var(--w-4);
+      padding-right: var(--w-4);
+    }
+  }
+}
+
+.header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--w-12);
+  padding-bottom: var(--w-12);
+
+  @include media(md) {
+    flex-direction: column;
+    gap: var(--w-8);
+    padding-top: var(--w-8);
+    padding-bottom: var(--w-8);
+  }
+
+  .logo {
+    width: auto;
+    height: auto;
+    display: flex;
+
+    svg {
+      width: auto;
+      height: var(--w-8);
+      color: rgba(var(--white), 0.36);
+    }
+  }
+
+  .location {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--w-4);
+
+    @include media(md) {
+      width: 100%;
+    }
+
+    button {
+      width: auto;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(var(--white), 0.03);
+      border: var(--w-px) solid rgba(var(--white), 0.03);
+      border-radius: var(--w-3);
+      transition: var(--ani-1);
+
+      &:hover {
+        background-color: rgba(var(--white), 0.06);
+        border: var(--w-px) solid rgba(var(--white), 0.06);
+        box-shadow: var(--shadow-1);
+      }
+
+      @include media(md) {
+        &:last-child {
+          flex: 1;
+          justify-content: flex-start;
+        }
+      }
+    }
+
+    svg {
+      width: var(--w-16);
+      height: var(--w-16);
+      display: flex;
+      flex-shrink: 0;
+      color: rgba(var(--white), 0.76);
+      padding: var(--w-4);
+
+      @include media(md) {
+        width: var(--w-14);
+        height: var(--w-14);
+        padding: var(--w-4);
+      }
+    }
+
+    p {
+      line-height: 1.5em;
+      font-size: var(--fs-2xl);
+      font-weight: 400;
+      color: rgba(var(--white), 1);
+      margin-right: var(--w-6);
+
+      @include media(md) {
+        font-size: var(--fs-base);
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--w-24);
+  flex: 1;
+
+  @include media(xl) {
+    gap: var(--w-12);
+  }
+  @include media(sm) {
+    gap: var(--w-8);
+  }
+
+  .top {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    @include media(xl) {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--w-8);
+    }
+    @include media(md) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .icon {
+      position: relative;
+      width: var(--w-64);
+      height: var(--w-64);
+      display: flex;
+      z-index: -1;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(transparent, rgba(var(--bg-1), 0.6));
+      }
+
+      @include media(xl) {
+        width: var(--w-64);
+        height: var(--w-64);
+
+        &::after {
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(var(--bg-1), 0.86)
+          );
+        }
+      }
+      @include media(md) {
+        width: var(--w-48);
+        height: var(--w-48);
+
+        &::after {
+          background: linear-gradient(
+            180deg,
+            transparent,
+            rgba(var(--bg-1), 0.86)
+          );
+        }
+      }
+      @include media(sm) {
+        width: var(--w-36);
+        height: var(--w-36);
+      }
+    }
+
+    .temp {
+      width: auto;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+
+      h4 {
+        line-height: 1.3em;
+        font-size: var(--fs-8xl);
+        font-weight: 300;
+        display: flex;
+        align-items: flex-start;
+        color: rgba(var(--white), 1);
+
+        @include media(md) {
+          font-weight: 400;
+          font-size: var(--fs-7xl);
+        }
+        @include media(sm) {
+          font-weight: 500;
+          font-size: var(--fs-4xl);
+        }
+      }
+
+      p {
+        line-height: 1.5em;
+        font-size: var(--fs-3xl);
+        font-weight: 400;
+        display: flex;
+        align-items: flex-start;
+        gap: var(--w-1);
+        text-transform: capitalize;
+        color: rgba(var(--white), 0.6);
+
+        @include media(md) {
+          font-size: var(--fs-2xl);
+        }
+        @include media(sm) {
+          font-size: var(--fs-xl);
+        }
+      }
+    }
+  }
+
+  ul {
+    width: auto;
+    height: auto;
+    display: flex;
+    gap: var(--w-8);
+    flex-wrap: wrap;
+
+    @include media(sm) {
+      gap: var(--w-4);
+    }
+
+    li {
+      position: relative;
+      width: auto;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      flex: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(var(--white), 0.09),
+        rgba(var(--white), 0.03)
+      );
+      border-bottom: var(--w-1) solid rgba(var(--white), 0.09);
+      padding: var(--w-8) var(--w-6);
+      border-radius: var(--w-3);
+      overflow: hidden;
+      overflow: hidden;
+
+      @include media(lg) {
+        min-width: var(--w-48);
+      }
+      @include media(md) {
+        min-width: var(--w-48);
+      }
+      @include media(sm) {
+        padding: var(--w-6) var(--w-4);
+        min-width: var(--w-36);
+      }
+
+      p {
+        line-height: 1.5em;
+        font-size: var(--fs-2xl);
+        font-weight: 500;
+        color: rgba(var(--white), 1);
+        display: flex;
+        align-items: center;
+
+        @include media(lg) {
+          font-size: var(--fs-xl);
+        }
+        @include media(md) {
+          font-size: var(--fs-lg);
+        }
+
+        i {
+          font-style: normal;
+        }
+
+        b {
+          font-weight: inherit;
+          font-size: var(--fs-sm);
+          margin-left: var(--w-1);
+        }
+      }
+
+      span {
+        line-height: 1.5em;
+        font-size: var(--fs-base);
+        font-weight: 500;
+        color: rgba(var(--white), 0.6);
+
+        @include media(lg) {
+          font-size: var(--fs-sm);
+        }
+        @include media(md) {
+          font-size: var(--fs-xs);
+        }
+      }
+
+      .icon {
+        position: absolute;
+        right: calc(var(--w-24) / 3 * -1);
+        width: var(--w-24);
+        height: var(--w-24);
+        display: flex;
+        color: rgba(var(--white), 0.16);
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--w-12);
+  padding-bottom: var(--w-12);
+
+  @include media(md) {
+    flex-direction: column-reverse;
+    gap: var(--w-2);
+    padding-top: var(--w-8);
+    padding-bottom: var(--w-8);
+  }
+
+  p {
+    line-height: 1.5em;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: rgba(var(--white), 0.36);
+
+    @include media(md) {
+      font-size: var(--fs-xs);
+    }
+
+    a {
+      color: rgba(var(--white), 0.6);
+      transition: var(--ani-1);
+
+      &:hover {
+        color: rgb(var(--cd));
+      }
+    }
+  }
+}
+
+.alert {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .container {
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .top {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--w-1);
+    padding: var(--w-8);
+  }
+
+  svg {
+    width: var(--w-32);
+    height: var(--w-32);
+    display: flex;
+    color: rgba(var(--white), 0.36);
+    padding: var(--w-4);
+  }
+
+  h1 {
+    line-height: 1.3em;
+    font-size: var(--fs-3xl);
+    font-weight: 400;
+    color: rgba(var(--white), 1);
+    text-align: center;
+  }
+  p {
+    line-height: 1.5em;
+    font-size: var(--fs-base);
+    font-weight: 500;
+    color: rgba(var(--white), 0.6);
+    text-align: center;
+  }
+
+  a {
+    line-height: 1.5em;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: rgba(var(--black), 1);
+    background-color: rgba(var(--white), 1);
+    text-align: center;
+    border-radius: 999px;
+    transition: var(--ani-1);
+    padding: var(--w-2_5) var(--w-6);
+    margin-top: var(--w-4);
+
+    &:hover {
+      background-color: rgba(var(--white), 0.85);
+    }
+  }
+}
